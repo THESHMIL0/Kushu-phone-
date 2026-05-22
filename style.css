@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -15,15 +16,15 @@ body {
   align-items: center;
 }
 
-/* Add a cool sunset/landscape background */
+/* Background Wallpaper */
 .wallpaper {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  /* You can replace this URL with any image link you like */
   background: url('https://images.unsplash.com/photo-1506744626753-143d6f78f882?q=80&w=1080&auto=format&fit=crop') center/cover no-repeat;
   z-index: 1;
 }
 
+/* Main Screen Wrapper */
 .iphone-screen {
   position: relative;
   z-index: 2;
@@ -86,7 +87,7 @@ body {
 }
 
 .milestone-widget h2 {
-  font-family: "Times New Roman", serif; /* Giving it that elegant Love OS look */
+  font-family: "Times New Roman", serif;
   font-size: 28px;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -105,23 +106,38 @@ body {
   background: rgba(0,0,0,0.1);
   border-radius: 10px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .progress-fill {
-  width: 75%; /* Adjust this to show progress */
+  width: 75%;
   height: 100%;
   background: linear-gradient(90deg, #ff8a00, #e52e71);
 }
 
-/* Bottom Dock */
-.dock {
-  margin: 15px;
-  padding: 15px;
-  border-radius: 35px;
+/* ===== APP GRID & ANIMATIONS ===== */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 10px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.app-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 30px; /* Extra space for iPhone home bar */
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.app-wrapper span {
+  color: white;
+  font-size: 12px;
+  margin-top: 6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  font-weight: 500;
 }
 
 .app-icon {
@@ -131,28 +147,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-/* ===== APP WINDOW STYLES ===== */
+}
+
+/* Squish animation when app is tapped */
+.app-wrapper:active {
+  transform: scale(0.85);
+  filter: brightness(0.8);
+}
+
+/* Bottom Dock */
+.dock {
+  margin: 15px;
+  padding: 15px;
+  border-radius: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px; 
+}
+
+.dock .app-wrapper span {
+  display: none; /* Hide text in the dock */
+}
+
+/* ===== APP WINDOW STYLES (Slide-up functionality) ===== */
 .app-window {
   position: absolute;
-  top: 100%; /* Starts completely off-screen at the bottom */
+  top: 100%;
   left: 0;
   width: 100%;
   height: 100%;
   background: #ffffff;
   z-index: 20;
-  transition: top 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smooth iOS-style slide */
+  transition: top 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: flex;
   flex-direction: column;
 }
 
 .app-window.active {
-  top: 0; /* Slides into view */
+  top: 0;
 }
 
-/* Top bar for apps (accounts for the mobile notch/camera cutout) */
 .app-top-bar {
   padding: 45px 20px 15px; 
   background: #f8f8f8;
@@ -173,7 +209,7 @@ body {
   font-weight: 500;
 }
 
-/* Browser specific */
+/* Browser App */
 .app-iframe {
   flex: 1;
   border: none;
@@ -181,14 +217,130 @@ body {
   background: #fff;
 }
 
-/* Music Player specific */
+/* Fake Phone App */
+.call-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: white;
+}
+
+.contact-photo {
+  width: 120px;
+  height: 120px;
+  background: #ff3b30;
+  border-radius: 50%;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.contact-name {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.call-status {
+  color: #aaa;
+  margin-bottom: 80px;
+  font-size: 18px;
+}
+
+.end-call-btn {
+  width: 75px;
+  height: 75px;
+  background: #ff3b30;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 59, 48, 0.4);
+  transition: transform 0.2s;
+}
+
+.end-call-btn:active {
+  transform: scale(0.9);
+}
+
+/* Fake Messages App */
+.chat-container {
+  flex: 1;
+  padding: 20px;
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.msg {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  font-size: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.msg.received {
+  align-self: flex-start;
+  background: #fff;
+  border-bottom-left-radius: 5px;
+  color: #000;
+}
+
+.msg.sent {
+  align-self: flex-end;
+  background: #007aff;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.chat-input-area {
+  padding: 15px 20px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+  padding-bottom: 30px; 
+}
+
+.chat-box {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+}
+
+.send-btn {
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Music App */
 .music-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #1c1c1e; /* Dark mode aesthetic */
+  background: #1c1c1e;
   color: white;
 }
 
@@ -222,5 +374,4 @@ body {
 
 .controls .play-btn {
   font-size: 48px;
-  }
-  
+}
