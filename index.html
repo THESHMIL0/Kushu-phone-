@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This meta tag is the secret sauce for a full-screen app feel -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Full Screen App ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Status Area (Optional, for aesthetics) -->
+  <header class="app-header">
+    <h2>😼 App Hub</h2>
+  </header>
+
+  <!-- Main Scrollable Content -->
+  <main class="app-content">
+    <div class="card">
+      <h3>Welcome! ✨</h3>
+      <p>This layout takes up the exact height of the screen without any annoying overflow.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Kitchu's Corner 🐾</h3>
+      <p>Ready for whatever features we want to build next.</p>
+    </div>
+  </main>
+
+  <!-- Bottom App Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="switchTab('home')">🏠<br>Home</button>
+    <button class="nav-btn" onclick="switchTab('search')">🔍<br>Search</button>
+    <button class="nav-btn" onclick="switchTab('profile')">👤<br>Profile</button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
