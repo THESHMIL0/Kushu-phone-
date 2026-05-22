@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- App Install Meta Tags (PWA) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#000000">
+  
   <title>Love OS ✨</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,9 +27,7 @@
       <div class="dynamic-island">
         <span>Kitchu's Corner</span>
       </div>
-      <div class="icons">
-        📶 🔋
-      </div>
+      <div class="icons">📶 🔋</div>
     </div>
 
     <!-- Home Screen Content -->
@@ -31,7 +36,6 @@
       <!-- Top Widget: Kitchu -->
       <div class="widget glass">
         <div class="paw-heart">
-           <!-- SVG for the Heart & Paw -->
            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4a3b32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               <circle cx="15" cy="12" r="1.5" fill="#4a3b32"></circle>
@@ -51,19 +55,136 @@
         </div>
       </div>
 
+      <!-- App Grid -->
+      <div class="app-grid">
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: white; color: #333; font-size: 35px;">⚙️</div>
+          <span>Settings</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: linear-gradient(45deg, #ffcc00, #ff3b30, #cc73e1, #007aff); font-size: 30px;">📸</div>
+          <span>Photos</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: #8e8e93; font-size: 30px;">📷</div>
+          <span>Camera</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); font-size: 30px;">📷</div>
+          <span>Instagram</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: #25d366; font-size: 30px;">💬</div>
+          <span>WhatsApp</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('music-app')">
+          <div class="app-icon" style="background: #1db954; font-size: 30px;">🎵</div>
+          <span>Spotify</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: #1c1c1e; color: #007aff; font-size: 30px; font-weight: bold;">A</div>
+          <span>App Store</span>
+        </div>
+        <div class="app-wrapper" onclick="openApp('generic-app')">
+          <div class="app-icon" style="background: #fff; font-size: 30px;">🗺️</div>
+          <span>Maps</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- Bottom App Dock -->
     <div class="dock glass">
-      <!-- Opens fake phone -->
-      <div class="app-icon" style="background: #34c759;" onclick="openApp('phone-app')">📞</div>
-      
-      <!-- Opens fake messages -->
-      <div class="app-icon" style="background: #34c759;" onclick="openApp('messages-app')">💬</div>
-      
-      <!-- Opens our custom Web window -->
-      <div class="app-icon" style="background: #007aff;" onclick="openApp('browser-app')">🌐</div>
-      
-      <!-- Opens our custom Music window -->
-      <div class="app-icon" style="background: #ff3b30;" onclick="openApp('music-app')">🎵</div>
+      <div class="app-wrapper" onclick="openApp('phone-app')">
+        <div class="app-icon" style="background: #34c759; font-size: 30px;">📞</div>
+      </div>
+      <div class="app-wrapper" onclick="openApp('messages-app')">
+        <div class="app-icon" style="background: #34c759; font-size: 30px;">💬</div>
+      </div>
+      <div class="app-wrapper" onclick="openApp('browser-app')">
+        <div class="app-icon" style="background: #007aff; font-size: 30px;">🧭</div>
+      </div>
+      <div class="app-wrapper" onclick="openApp('music-app')">
+        <div class="app-icon" style="background: #ff3b30; font-size: 30px;">🎵</div>
+      </div>
     </div>
+
+    <!-- ===== FAKE APP WINDOWS ===== -->
+
+    <!-- Generic "Coming Soon" App -->
+    <div id="generic-app" class="app-window" style="background: #000; color: white;">
+      <div class="app-top-bar" style="background: #111; color: white; border: none;">
+        <button class="close-btn" onclick="closeApp('generic-app')">◀ Back</button>
+      </div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <h2 style="margin-bottom: 10px;">Coming Soon ✨</h2>
+        <p style="color: #888;">Still coding this part!</p>
+      </div>
+    </div>
+
+    <!-- Fake Phone App -->
+    <div id="phone-app" class="app-window" style="background: #1c1c1e;">
+      <div class="app-top-bar" style="background: #1c1c1e; color: white; border-bottom: none;">
+        <button class="close-btn" onclick="closeApp('phone-app')">◀ Back</button>
+      </div>
+      <div class="call-screen">
+        <div class="contact-photo">👩🏻</div>
+        <h2 class="contact-name">Ayuu ❤️</h2>
+        <p class="call-status">calling...</p>
+        <div class="end-call-btn" onclick="closeApp('phone-app')">☎️</div>
+      </div>
+    </div>
+
+    <!-- Fake Messages App -->
+    <div id="messages-app" class="app-window">
+      <div class="app-top-bar">
+        <button class="close-btn" onclick="closeApp('messages-app')">◀ Back</button>
+        <span>Ayuu ❤️</span>
+      </div>
+      <div class="chat-container">
+        <div class="msg received">Hiii! What are you building? 😼</div>
+        <div class="msg sent">Just a little Love OS for us ✨</div>
+        <div class="msg received">Omg I love it!! ❤️</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" placeholder="iMessage" class="chat-box">
+        <button class="send-btn">↑</button>
+      </div>
+    </div>
+
+    <!-- Browser App -->
+    <div id="browser-app" class="app-window">
+      <div class="app-top-bar">
+        <button class="close-btn" onclick="closeApp('browser-app')">◀ Back</button>
+        <span>Web Hub</span>
+      </div>
+      <!-- Add your Neon Snake or Carrom Blitz URL here later! -->
+      <iframe src="https://en.wikipedia.org/wiki/Special:Random" class="app-iframe"></iframe>
+    </div>
+
+    <!-- Music App -->
+    <div id="music-app" class="app-window">
+      <div class="app-top-bar">
+        <button class="close-btn" onclick="closeApp('music-app')">◀ Back</button>
+        <span>Now Playing</span>
+      </div>
+      <div class="music-content">
+        <div class="album-art">🎶</div>
+        <h3>Pippo's Song</h3>
+        <p style="color: #aaa; margin-top: 5px;">Doraemon</p>
+        <div class="progress-bar" style="width: 80%; margin-top: 40px; background: #333;">
+          <div class="progress-fill" style="width: 45%; background: #ff3b30;"></div>
+        </div>
+        <div class="controls">
+          <button>⏮</button>
+          <button class="play-btn">▶</button>
+          <button>⏭</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
