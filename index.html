@@ -55,11 +55,11 @@
 
     <!-- Bottom App Dock -->
     <div class="dock glass">
-      <!-- Opens your phone's native dialer -->
-      <div class="app-icon" style="background: #34c759;" onclick="window.location.href='tel:'">📞</div>
+      <!-- Opens fake phone -->
+      <div class="app-icon" style="background: #34c759;" onclick="openApp('phone-app')">📞</div>
       
-      <!-- Opens your native SMS or WhatsApp (You can put Ayuu's number after the colon: 'sms:+91...') -->
-      <div class="app-icon" style="background: #34c759;" onclick="window.location.href='sms:'">💬</div>
+      <!-- Opens fake messages -->
+      <div class="app-icon" style="background: #34c759;" onclick="openApp('messages-app')">💬</div>
       
       <!-- Opens our custom Web window -->
       <div class="app-icon" style="background: #007aff;" onclick="openApp('browser-app')">🌐</div>
@@ -67,40 +67,3 @@
       <!-- Opens our custom Music window -->
       <div class="app-icon" style="background: #ff3b30;" onclick="openApp('music-app')">🎵</div>
     </div>
-
-    <!-- ===== APP WINDOWS (Hidden by default) ===== -->
-    
-    <!-- Browser App -->
-    <div id="browser-app" class="app-window">
-      <div class="app-top-bar">
-        <button class="close-btn" onclick="closeApp('browser-app')">◀ Back</button>
-        <span>Web Hub</span>
-      </div>
-      <!-- You can replace this link with the Netlify/GitHub link to your Neon Snake or Carrom Blitz game! -->
-      <iframe src="https://en.wikipedia.org/wiki/Special:Random" class="app-iframe"></iframe>
-    </div>
-
-    <!-- Music App -->
-    <div id="music-app" class="app-window">
-      <div class="app-top-bar">
-        <button class="close-btn" onclick="closeApp('music-app')">◀ Back</button>
-        <span>Now Playing</span>
-      </div>
-      <div class="music-content">
-        <div class="album-art">🎶</div>
-        <h3>Pippo's Song</h3>
-        <p style="color: #aaa; margin-top: 5px;">Doraemon</p>
-        
-        <div class="progress-bar" style="width: 80%; margin-top: 40px; background: #333;">
-          <div class="progress-fill" style="width: 45%; background: #ff3b30;"></div>
-        </div>
-
-        <div class="controls">
-          <button>⏮</button>
-          <button class="play-btn">▶</button>
-          <button>⏭</button>
-        </div>
-      </div>
-    </div>
-
-  </div> <!-- Closing the .iphone-screen div from earlier -->
