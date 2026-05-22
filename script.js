@@ -41,9 +41,3 @@ function openApp(appId) {
 function closeApp(appId) {
   document.getElementById(appId).classList.remove('active');
 }
-}
-
-// Closes an app window by sliding it back down
-function closeApp(appId) {
-  document.getElementById(appId).classList.remove('active');
-}
