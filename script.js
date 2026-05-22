@@ -1,12 +1,33 @@
-// Simple function to handle the bottom navigation clicks
-function switchTab(tabName) {
-  // Remove 'active' class from all buttons
-  const buttons = document.querySelectorAll('.nav-btn');
-  buttons.forEach(btn => btn.classList.remove('active'));
-
-  // Add 'active' class to the clicked button
-  event.currentTarget.classList.add('active');
-
-  // Here we would normally swap out the innerHTML of .app-content
-  console.log(`Switched to ${tabName} tab!`);
+// 1. Update the top status bar clock
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  
+  // Format to 12-hour clock
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  
+  document.getElementById('clock').innerText = `${hours}:${minutes}`;
 }
+
+setInterval(updateClock, 1000);
+updateClock();
+
+// 2. Calculate the "Days Together" milestone
+function updateMilestone() {
+  // Set the start date here (August 18th)
+  // Just change the year to the exact year you met
+  const startDate = new Date('August 18, 2022'); 
+  const today = new Date();
+  
+  // Calculate the difference in milliseconds, then convert to days
+  const differenceInTime = today.getTime() - startDate.getTime();
+  const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
+  
+  // Update the HTML
+  document.getElementById('days-count').innerText = differenceInDays.toLocaleString();
+}
+
+updateMilestone();
