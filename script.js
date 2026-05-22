@@ -31,3 +31,12 @@ function updateMilestone() {
 }
 
 updateMilestone();
+// Opens an app window by sliding it up
+function openApp(appId) {
+  document.getElementById(appId).classList.add('active');
+}
+
+// Closes an app window by sliding it back down
+function closeApp(appId) {
+  document.getElementById(appId).classList.remove('active');
+}
