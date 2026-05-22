@@ -2,38 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- This meta tag is the secret sauce for a full-screen app feel -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Full Screen App ✨</title>
+  <title>Love OS ✨</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Top Status Area (Optional, for aesthetics) -->
-  <header class="app-header">
-    <h2>😼 App Hub</h2>
-  </header>
+  <!-- Background Wallpaper -->
+  <div class="wallpaper"></div>
 
-  <!-- Main Scrollable Content -->
-  <main class="app-content">
-    <div class="card">
-      <h3>Welcome! ✨</h3>
-      <p>This layout takes up the exact height of the screen without any annoying overflow.</p>
-    </div>
+  <!-- Main Screen Container -->
+  <div class="iphone-screen">
     
-    <div class="card">
-      <h3>Kitchu's Corner 🐾</h3>
-      <p>Ready for whatever features we want to build next.</p>
+    <!-- Top Status Bar -->
+    <div class="status-bar">
+      <div class="time" id="clock">7:08</div>
+      <div class="dynamic-island">
+        <span>Kitchu's Corner</span>
+      </div>
+      <div class="icons">
+        📶 🔋
+      </div>
     </div>
-  </main>
 
-  <!-- Bottom App Navigation -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" onclick="switchTab('home')">🏠<br>Home</button>
-    <button class="nav-btn" onclick="switchTab('search')">🔍<br>Search</button>
-    <button class="nav-btn" onclick="switchTab('profile')">👤<br>Profile</button>
-  </nav>
+    <!-- Home Screen Content -->
+    <div class="home-content">
+      
+      <!-- Top Widget: Kitchu -->
+      <div class="widget glass">
+        <div class="paw-heart">
+           <!-- SVG for the Heart & Paw -->
+           <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4a3b32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              <circle cx="15" cy="12" r="1.5" fill="#4a3b32"></circle>
+              <circle cx="12" cy="14" r="1.5" fill="#4a3b32"></circle>
+              <circle cx="17" cy="15" r="1.5" fill="#4a3b32"></circle>
+              <path d="M15 18c-1.5 0-2.5-1-2.5-2.5S13.5 13 15 13s2.5 1 2.5 2.5S16.5 18 15 18z" fill="#4a3b32"></path>
+           </svg>
+        </div>
+      </div>
+
+      <!-- Bottom Widget: Love OS Milestone -->
+      <div class="widget glass milestone-widget">
+        <h2>LOVE OS</h2>
+        <p>Milestone: <span id="days-count">0</span> Days Together</p>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom App Dock -->
+    <div class="dock glass">
+      <div class="app-icon" style="background: #34c759;">📞</div>
+      <div class="app-icon" style="background: #34c759;">💬</div>
+      <div class="app-icon" style="background: #007aff;">🌐</div>
+      <div class="app-icon" style="background: #ff3b30;">🎵</div>
+    </div>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
+  
